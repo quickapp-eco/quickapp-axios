@@ -1,0 +1,6 @@
+<script>
+  // api regenerator
+  import '../tools/regenerator';
+
+  export default {};
+</script>

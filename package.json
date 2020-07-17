@@ -1,0 +1,82 @@
+{
+  "name": "@quickapp-eco/quickapp-axios",
+  "version": "0.1.0",
+  "description": "Promise based HTTP client for the quick-app",
+  "main": "dist/quick-app-fetch.cjs.js",
+  "module": "dist/quick-app-fetch.esm.js",
+  "unpkg": "dist/quick-app-fetch.min.js",
+  "directories": {
+    "example": "example"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "fetch",
+    "http",
+    "ajax",
+    "promise",
+    "quick-app"
+  ],
+  "author": "HeartCloud <ht1005cyh@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "eslint src --fix --ext .js",
+    "test": "jest",
+    "build": "npm run clean && rollup -c scripts/rollup.config.js",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quickapp-eco/quickapp-axios.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testRegex": "/__test__/.*.test.js?$"
+  },
+  "typings": "./types/index.d.ts",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.0.3",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.32.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-filesize": "^6.2.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "standard-version": "^7.1.0",
+    "uglify-es": "^3.3.9"
+  },
+  "bugs": {
+    "url": "https://github.com/quickapp-eco/quickapp-axios/issues"
+  },
+  "homepage": "https://github.com/quickapp-eco/quickapp-axios#readme"
+}

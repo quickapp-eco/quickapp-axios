@@ -1,0 +1,59 @@
+<template>
+  <div class="container">
+    <!-- component:button -->
+    <input class="btn" type="button" value="Load Data" @click="loadData"/>
+
+    <!-- component:content -->
+    <text class="content">{{ data }}</text>
+  </div>
+</template>
+
+<script>
+  import prompt from '@system.prompt';
+  import { loadData } from '../../services/api';
+
+  export default {
+    private: {
+      data: ''
+    },
+    /**
+     * Load Data
+     */
+    async loadData() {
+      try {
+        const response = await loadData();
+        this.data = JSON.stringify(response || {});
+        prompt.showToast({ message: 'Load Data Success!' });
+      } catch (e) {
+        const { message } = e;
+        prompt.showToast({ message });
+        console.error(e);
+      }
+    }
+  };
+</script>
+
+<style>
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .btn {
+    width: 550px;
+    height: 90px;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    border-radius: 43px;
+    background-color: #09ba07;
+    font-size: 42px;
+    color: #ffffff;
+  }
+
+  .content {
+    padding: 50px;
+    font-size: 40px;
+    text-align: center;
+  }
+</style>

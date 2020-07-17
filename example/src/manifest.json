@@ -1,0 +1,45 @@
+{
+  "package": "com.quickAppFetch.example",
+  "name": "example",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "minPlatformVersion": "1020",
+  "icon": "/assets/logo.png",
+  "features": [
+    {
+      "name": "system.prompt"
+    },
+    {
+      "name": "system.fetch"
+    }
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    "logLevel": "debug",
+    "designWidth": 1080
+  },
+  "router": {
+    "entry": "views/Home",
+    "pages": {
+      "views/Home": {
+        "component": "index"
+      }
+    }
+  },
+  "display": {
+    "backgroundColor": "#fff",
+    "titleBar": true,
+    "titleBarBackgroundColor": "#fff",
+    "menu": false,
+    "statusBarBackgroundColor": "#fff",
+    "pages": {
+      "views/Home": {
+        "titleBarText": "示例页"
+      }
+    }
+  }
+}
