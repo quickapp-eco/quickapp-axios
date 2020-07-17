@@ -1,7 +1,7 @@
 {
   "name": "@quickapp-eco/quickapp-axios",
-  "version": "0.1.0",
-  "description": "Promise based HTTP client for the quick-app",
+  "version": "0.1.1",
+  "description": "网络请求axios工具库在快应用平台上的实现",
   "main": "dist/quick-app-fetch.cjs.js",
   "module": "dist/quick-app-fetch.esm.js",
   "unpkg": "dist/quick-app-fetch.min.js",

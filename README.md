@@ -1,36 +1,36 @@
 # quickapp-axios
 
-Promise based HTTP client for the quick-app
+网络请求axios工具库在快应用平台上的实现
 
-## Features
+## 特性
 
-- Make [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) from the quick-app
-- Supports the Promise API
-- New fetch request alias
-- Intercept request and response
-- Transform request and response data
+- 从快应用中出创建 [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+- 支持 Promise API
+- 创建建fetch请求别名
+- 拦截请求和响应
+- 转换请求和响应数据
 
-## Platform Support
+## 平台支持
 
 ![QuickApp](https://doc.quickapp.cn/assets/images/logo.png)
 
-## Config manifest. json
+## manifest.json 配置
 
 ``` 
 { "name": "system.fetch" }
 ```
 
-## Installing
+## 安装
 
-Using npm:
+使用 npm:
 
 ``` bash
 $ npm install @quickapp-eco/quickapp-axios
 ```
 
-## Example
+## 示例
 
-Performing a `GET` request
+执行 `GET` 请求
 
 ``` js
 // Make a request for a user with a given ID
@@ -56,7 +56,7 @@ fetch.get('/example', {
     });
 ```
 
-Performing a `POST` request
+执行 `POST` 请求
 
 ``` js
 fetch.post('/example', {
@@ -73,12 +73,12 @@ fetch.post('/example', {
 
 ## fetch API
 
-Requests can be made by passing the relevant config to `fetch` . 
+可以通过将相关配置传递给 `fetch` 来进行请求
 
 ##### fetch(config)
 
 ``` js
-// Send a POST request
+// 发送一个 POST 请求
 fetch({
     method: 'post',
     url: '/example/12345',
@@ -89,9 +89,9 @@ fetch({
 });
 ```
 
-### Request method aliases
+### 请求方法别名
 
-For convenience aliases have been provided for all supported request methods. 
+为了方便起见，已经为所有支持的请求方法提供了别名。
 
 ##### fetch. get(url[, config])
 
@@ -107,9 +107,9 @@ For convenience aliases have been provided for all supported request methods.
 
 ##### fetch. patch(url[, data[, config]])
 
-### Creating an instance
+### 创建实例
 
-You can create a new instance of fetch with a custom config. 
+您可以使用自定义配置创建axios的新实例。
 
 ##### fetch. create([config])
 
@@ -122,16 +122,16 @@ let instance = fetch.create({
 });
 ```
 
-## Request Config
+## 请求配置
 
-These are the available config options for making requests. Only the `url` is required. Requests will default to `GET` if `method` is not specified. 
+这些是用于发出请求的可用配置选项。 只有url是必需的。 如果未指定method，请求将默认为GET。
 
-## Interceptors
+## 拦截器
 
-You can intercept requests or responses before they are handled by `then` or `catch` . 
+你可以截取请求或响应在被 `then` 或者 `catch` 处理之前
 
 ``` js
-// Add a request interceptor
+// 添加请求拦截器
 fetch.interceptors.request.use(config => {
     // Do something before request is sent
     return config;
@@ -140,7 +140,7 @@ fetch.interceptors.request.use(config => {
     return Promise.reject(error);
 });
 
-// Add a response interceptor
+// 添加响应拦截器
 fetch.interceptors.response.use(response => {
     // Do something with response data
     return response;
@@ -150,7 +150,7 @@ fetch.interceptors.response.use(response => {
 });
 ```
 
-If you may need to remove an interceptor later you can. 
+如果你之后可能需要删除拦截器。
 
 ``` js
 let myInterceptor = fetch.interceptors.request.use(function() {
@@ -158,7 +158,7 @@ let myInterceptor = fetch.interceptors.request.use(function() {
 fetch.interceptors.request.eject(myInterceptor);
 ```
 
-You can add interceptors to a custom instance of fetch. 
+你可以将拦截器添加到fetch的自定义实例。
 
 ``` js
 let instance = fetch.create();
@@ -168,7 +168,8 @@ instance.interceptors.request.use(function() {
 
 ## TypeScript
 
-fetch includes [TypeScript](http://typescriptlang.org) definitions. 
+
+fetch包括 [TypeScript](http://typescriptlang.org) 定义。
 
 ``` typescript
 import fetch from '@quickapp-eco/quickapp-axios';
